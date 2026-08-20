@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Sahu Tours & Travels | Explore More{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content reveal">
+    <div class="eyebrow">BHILAI • CHHATTISGARH • INDIA</div>
+    <h1>Travel far.<br><em>Feel more.</em></h1>
+    <p>Premium tour planning, pilgrimage journeys, group tours and bus rentals — designed around your journey.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('packages') }}">Explore Packages <span>↗</span></a>
+      <a class="btn btn-ghost" href="{{ url_for('booking') }}">Get a Quote</a>
+    </div>
+  </div>
+  <div class="hero-orbit o1"></div><div class="hero-orbit o2"></div>
+  <div class="scroll-cue">SCROLL <span>↓</span></div>
+</section>
+
+<section class="stats">
+  <div><strong data-count="25">25+</strong><span>Tour Packages</span></div>
+  <div><strong>India</strong><span>Pan-India Journeys</span></div>
+  <div><strong>24/7</strong><span>Travel Assistance</span></div>
+  <div><strong>1</strong><span>Trusted Travel Partner</span></div>
+</section>
+
+<section class="section">
+  <div class="section-head reveal"><div><span class="eyebrow">FEATURED JOURNEYS</span><h2>Where will you go<br><em>next?</em></h2></div><a href="{{ url_for('packages') }}" class="text-link">View all packages →</a></div>
+  <div class="cards">
+    {% for item in featured %}
+    <article class="tour-card reveal">
+      <div class="card-image" style="{% if item.image %}background-image:url('{{ item.image }}'){% endif %}"><span>{{ item.category }}</span></div>
+      <div class="card-body"><div><small>{{ item.duration }}</small><h3>{{ item.title }}</h3></div><strong>{{ item.price }}</strong></div>
+      <a class="card-arrow" href="{{ url_for('package_detail', package_id=item.id) }}">↗</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="marquee"><div>PRIVATE TOURS ✦ PILGRIMAGE ✦ ADVENTURE ✦ BUS RENTAL ✦ GROUP TRAVEL ✦ SIGHTSEEING ✦</div></section>
+
+<section class="split-section">
+  <div class="split-copy reveal"><span class="eyebrow">WHY SAHU?</span><h2>Not just a trip.<br><em>A story.</em></h2><p>From a peaceful pilgrimage to a family holiday or a large group journey, we handle the planning so you can enjoy the experience.</p><a class="btn btn-dark" href="{{ url_for('about') }}">Know Our Story →</a></div>
+  <div class="feature-visual reveal"><div class="visual-card vc1">✦<span>Curated<br>Itineraries</span></div><div class="visual-card vc2">↗<span>Comfortable<br>Travel</span></div><div class="visual-card vc3">∞<span>Memorable<br>Journeys</span></div></div>
+</section>
+
+<section class="cta-section"><div class="reveal"><span class="eyebrow">READY WHEN YOU ARE</span><h2>Your next adventure<br>starts <em>here.</em></h2><a class="btn btn-primary" href="{{ url_for('booking') }}">Plan My Journey →</a></div></section>
+{% endblock %}

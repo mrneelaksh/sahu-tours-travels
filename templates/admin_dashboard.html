@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<section class="admin-head"><div><span class="eyebrow">OWNER DASHBOARD</span><h1>Manage <em>everything.</em></h1></div><div><a class="btn btn-dark" href="{{ url_for('admin_package_new') }}">+ Add Package</a><a class="btn btn-ghost-dark" href="{{ url_for('admin_password') }}">Change Password</a><a class="btn btn-ghost-dark" href="{{ url_for('admin_logout') }}">Logout</a></div></section>
+<section class="admin-section"><h2>Packages <small>{{ packages|length }}</small></h2><div class="admin-table">{% for p in packages %}<div class="admin-row"><div><b>{{ p.title }}</b><small>{{ p.category }} · {{ p.price }}</small></div><div><a href="{{ url_for('admin_package_edit', package_id=p.id) }}">Edit</a><form method="post" action="{{ url_for('admin_package_delete', package_id=p.id) }}" onsubmit="return confirm('Delete this package?')"><button>Delete</button></form></div></div>{% endfor %}</div></section>
+<section class="admin-section"><h2>Booking Enquiries <small>{{ bookings|length }}</small></h2><div class="admin-table">{% for b in bookings %}<div class="admin-row"><div><b>{{ b.name }} — {{ b.phone }}</b><small>{{ b.destination or 'Destination not specified' }} · {{ b.travel_date or 'Flexible date' }} · {{ b.people }} traveller(s)</small><p>{{ b.message or '' }}</p></div><div><a href="tel:{{ b.phone }}">Call</a></div></div>{% else %}<div class="empty">No enquiries yet.</div>{% endfor %}</div></section>
+{% endblock %}

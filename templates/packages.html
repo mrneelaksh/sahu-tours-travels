@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Tour Packages | Sahu Tours & Travels{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="eyebrow">EXPLORE</span><h1>Tour <em>Packages</em></h1><p>Choose a journey, then let us take care of the details.</p></section>
+<section class="section">
+<form class="filterbar"><input name="q" value="{{ q }}" placeholder="Search destination..."><select name="category"><option value="">All categories</option>{% for c in categories %}<option value="{{ c }}" {% if c==category %}selected{% endif %}>{{ c }}</option>{% endfor %}</select><button class="btn btn-dark">Search</button></form>
+<div class="cards">
+{% for item in packages %}
+<article class="tour-card reveal"><div class="card-image" style="{% if item.image %}background-image:url('{{ item.image }}'){% endif %}"><span>{{ item.category }}</span></div><div class="card-body"><div><small>{{ item.duration }}</small><h3>{{ item.title }}</h3></div><strong>{{ item.price }}</strong></div><a class="card-arrow" href="{{ url_for('package_detail', package_id=item.id) }}">↗</a></article>
+{% else %}<div class="empty">No packages found.</div>{% endfor %}
+</div>
+</section>
+{% endblock %}

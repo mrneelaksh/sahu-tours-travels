@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Admin Login{% endblock %}
+{% block content %}
+<section class="admin-login"><div class="admin-box"><span class="eyebrow">OWNER AREA</span><h1>Admin <em>Login</em></h1><form method="post"><label>Username<input name="username" value="admin" required></label><label>Password<input type="password" name="password" required></label><button class="btn btn-dark">Login →</button></form><p class="hint">Initial password: <b>1234</b>. Change it immediately after login.</p></div></section>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Services | Sahu Tours & Travels{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="eyebrow">WHAT WE DO</span><h1>Travel, your <em>way.</em></h1><p>Flexible services for families, groups, students, pilgrims and corporate travellers.</p></section>
+<section class="service-grid section">{% for s in services %}<div class="service-card reveal"><span>{{ "%02d"|format(loop.index) }}</span><h3>{{ s }}</h3><p>Professional planning and travel support tailored to your requirement.</p></div>{% endfor %}</section>
+{% endblock %}

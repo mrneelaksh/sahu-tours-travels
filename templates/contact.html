@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Contact | Sahu Tours & Travels{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="eyebrow">GET IN TOUCH</span><h1>Let's plan your <em>next trip.</em></h1></section>
+<section class="contact-grid section"><div class="contact-card"><span>CALL</span><a href="tel:{{ phone_href }}">{{ phone }}</a><span>ADDRESS</span><p>{{ address }}</p><a class="btn btn-dark" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Street+No.+5,+Kasaridih+-+Borsi+Rd,+Bhilai,+Durg,+Chhattisgarh+491001">Open in Google Maps →</a></div><div class="map"><iframe loading="lazy" src="https://www.google.com/maps?q=Street%20No.%205%2C%20Kasaridih%20-%20Borsi%20Rd%2C%20Bhilai%2C%20Durg%2C%20Chhattisgarh%20491001&output=embed"></iframe></div></section>
+{% endblock %}

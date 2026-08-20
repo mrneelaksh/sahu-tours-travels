@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Booking Enquiry | Sahu Tours & Travels{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="eyebrow">BOOKING / ENQUIRY</span><h1>Tell us about<br><em>your trip.</em></h1></section>
+<section class="form-section"><form class="big-form" method="post"><div class="form-row"><label>Name<input name="name" required placeholder="Your full name"></label><label>Mobile<input name="phone" required placeholder="10-digit mobile"></label></div><div class="form-row"><label>Email<input name="email" type="email" placeholder="Optional"></label><label>Destination<input name="destination" placeholder="Where do you want to go?"></label></div><div class="form-row"><label>Travel date<input name="travel_date" type="date"></label><label>Travellers<input name="people" type="number" min="1" value="1"></label></div><label>Message<textarea name="message" rows="6" placeholder="Tell us your dates, hotel/transport needs, etc."></textarea></label><button class="btn btn-primary">Send Enquiry →</button></form></section>
+{% endblock %}

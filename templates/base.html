@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Sahu Tours & Travels - tour packages, pilgrimages, bus rental and group travel from Bhilai, Durg, Chhattisgarh.">
+  <title>{% block title %}Sahu Tours & Travels{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="loader"><div class="loader-ring"></div><span>SAHU TOURS</span></div>
+<div class="cursor"></div><div class="cursor-dot"></div>
+
+<header class="nav">
+  <a class="brand" href="{{ url_for('home') }}">
+    <span class="brand-mark">ST</span>
+    <span><b>Sahu</b><small>Tours & Travels</small></span>
+  </a>
+  <button class="menu-btn" onclick="document.body.classList.toggle('menu-open')">☰</button>
+  <nav>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('packages') }}">Packages</a>
+    <a href="{{ url_for('services_page') }}">Services</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+    <a class="nav-cta" href="{{ url_for('booking') }}">Plan My Trip →</a>
+  </nav>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-wrap">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<main>{% block content %}{% endblock %}</main>
+
+<footer class="footer">
+  <div>
+    <div class="brand footer-brand"><span class="brand-mark">ST</span><span><b>Sahu</b><small>Tours & Travels</small></span></div>
+    <p>Journeys made memorable — from Bhilai to destinations across India and beyond.</p>
+  </div>
+  <div><h4>Explore</h4><a href="{{ url_for('packages') }}">Tour Packages</a><a href="{{ url_for('services_page') }}">Services</a><a href="{{ url_for('booking') }}">Booking</a></div>
+  <div><h4>Contact</h4><a href="tel:{{ phone_href }}">{{ phone }}</a><p>Bhilai, Durg, Chhattisgarh</p></div>
+  <div><h4>Admin</h4><a href="{{ url_for('admin_login') }}">Owner Login</a></div>
+</footer>
+<div class="bottom-bar">© 2026 Sahu Tours & Travels. All rights reserved.</div>
+
+<a class="floating-call" href="tel:{{ phone_href }}">☎</a>
+<a class="floating-wa" target="_blank" href="https://wa.me/919826486235?text=Hello%20Sahu%20Tours%20%26%20Travels%2C%20I%20want%20to%20plan%20a%20tour.">WA</a>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
