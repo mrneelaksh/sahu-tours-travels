@@ -20,8 +20,8 @@ Windows:
 
 Admin:
 - URL: `/admin/login`
-- Username: `admin`
-- Password: `1234`
+- Username: 
+- Password: 
 
 Change the password immediately from the Admin Dashboard.
 
